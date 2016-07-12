@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="domain">
+
+
+    <class name="Magazijn" table="Magazijn">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="locatie"  column="locatie" type="string"/>
+
+        <bag name="products"  table="Voorraad" cascade="all">
+            <key>
+                <column name="Magazijnid"/>
+            </key>
+            <many-to-many class="Product">
+                <column name="Productid"/>
+            </many-to-many>
+        </bag>
+
+        <bag name="medewerkers" table="MagazijnMedewerkers" cascade="all">
+
+            <key>
+
+                <column name="Magazijnid"/>
+            </key>
+            <many-to-many  class="Medewerker">
+
+                <column name="Medewerkerid"/>
+            </many-to-many>
+        </bag>
+
+    </class>
+
+    <class name="Medewerker" table="Medewerker">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="naam" column="naam" type="string"/>
+        <property name="username" column="username" type="string"/>
+        <property name="password" column="password" type="string"/>
+
+    </class>
+
+
+    <class name="Product" table="Product">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="naam" column="naam" type="string"/>
+        <property name="prijs" column="prijs" type="double"/>
+        <property name="omschrijving" column="omschrijving" type="string"/>
+        <property name="aantal" column="aantal" type="int"/>
+
+    </class>
+    <!-- maak hier de cijfer mapping -->
+</hibernate-mapping>

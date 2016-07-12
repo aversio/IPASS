@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - ipass@localhost" uuid="f106920d-996b-4f41-abed-6daf64ac1bdc">
+    <database-info product="MySQL" version="5.7.13-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="ipass"/>
+      <table id="2" parent="1" name="magazijn"/>
+      <table id="3" parent="1" name="magazijnmedewerkers"/>
+      <table id="4" parent="1" name="medewerker"/>
+      <table id="5" parent="1" name="product"/>
+      <table id="6" parent="1" name="voorraad"/>
+      <column id="7" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="8" parent="2" name="locatie">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <key id="9" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="10" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="11" parent="3" name="Magazijnid">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="12" parent="3" name="Medewerkerid">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <index id="13" parent="3" name="FKMagazijnMe371767">
+        <columns>Magazijnid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="14" parent="3" name="FKMagazijnMe87211">
+        <columns>Medewerkerid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="15" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="16" parent="3" name="FKMagazijnMe371767">
+        <columns>Magazijnid</columns>
+        <ref-key>~.magazijn.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="17" parent="3" name="FKMagazijnMe87211">
+        <columns>Medewerkerid</columns>
+        <ref-key>~.medewerker.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="18" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="19" parent="4" name="naam">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="20" parent="4" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="21" parent="4" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="22" parent="4" name="username">
+        <columns>username</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="23" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="24" parent="4" name="username">
+        <columns>username</columns>
+        <underlying-index>username</underlying-index>
+      </key>
+      <column id="25" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="26" parent="5" name="naam">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="27" parent="5" name="prijs">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="28" parent="5" name="omschrijving">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="29" parent="5" name="aantal">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="30" parent="5" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="31" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="32" parent="6" name="Magazijnid">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="33" parent="6" name="Productid">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <index id="34" parent="6" name="FKVoorraad458027">
+        <columns>Productid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="35" parent="6" name="FKVoorraad503533">
+        <columns>Magazijnid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="36" parent="6" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="37" parent="6" name="FKVoorraad458027">
+        <columns>Productid</columns>
+        <ref-key>~.product.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="38" parent="6" name="FKVoorraad503533">
+        <columns>Magazijnid</columns>
+        <ref-key>~.magazijn.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+  <data-source name="hibernate.cfg.xml/Hibernate" uuid="19b0f0e3-44bf-41b9-93cd-5b6c76f44fe3">
+    <database-info product="MySQL" version="5.7.13-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="ipass"/>
+      <table id="2" parent="1" name="magazijn"/>
+      <table id="3" parent="1" name="magazijnmedewerkers"/>
+      <table id="4" parent="1" name="medewerker"/>
+      <table id="5" parent="1" name="product"/>
+      <table id="6" parent="1" name="voorraad"/>
+      <column id="7" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="8" parent="2" name="locatie">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <key id="9" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="10" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="11" parent="3" name="Magazijnid">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="12" parent="3" name="Medewerkerid">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <index id="13" parent="3" name="FKMagazijnMe371767">
+        <columns>Magazijnid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="14" parent="3" name="FKMagazijnMe87211">
+        <columns>Medewerkerid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="15" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="16" parent="3" name="FKMagazijnMe371767">
+        <columns>Magazijnid</columns>
+        <ref-key>~.magazijn.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="17" parent="3" name="FKMagazijnMe87211">
+        <columns>Medewerkerid</columns>
+        <ref-key>~.medewerker.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="18" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="19" parent="4" name="naam">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="20" parent="4" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="21" parent="4" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="22" parent="4" name="username">
+        <columns>username</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="23" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="24" parent="4" name="username">
+        <columns>username</columns>
+        <underlying-index>username</underlying-index>
+      </key>
+      <column id="25" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="26" parent="5" name="naam">
+        <mandatory>1</mandatory>
+        <data-type>varchar(25)</data-type>
+      </column>
+      <column id="27" parent="5" name="prijs">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="28" parent="5" name="omschrijving">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="29" parent="5" name="aantal">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="30" parent="5" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="31" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="32" parent="6" name="Magazijnid">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="33" parent="6" name="Productid">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <index id="34" parent="6" name="FKVoorraad458027">
+        <columns>Productid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="35" parent="6" name="FKVoorraad503533">
+        <columns>Magazijnid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="36" parent="6" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="37" parent="6" name="FKVoorraad458027">
+        <columns>Productid</columns>
+        <ref-key>~.product.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="38" parent="6" name="FKVoorraad503533">
+        <columns>Magazijnid</columns>
+        <ref-key>~.magazijn.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
